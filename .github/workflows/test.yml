@@ -15,4 +15,6 @@ jobs:
           cd example-react
           npm ci
       - name: Run Tests
-        run: npm test
+        run: |
+          cd example-react
+          npm test
