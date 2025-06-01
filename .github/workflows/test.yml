@@ -18,3 +18,22 @@ jobs:
         run: |
           cd example-react
           npm test
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v4
+      - name: Install NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: |
+          cd example-react
+          npm ci
+      - name: Build Project
+        run: |
+          cd example-react
+          npm run build
+      - name: Deploying Application
+        run: echo "Deploying. . ."
